@@ -38,7 +38,7 @@ const incrementVote = (state,id) => {
 export const createAnecdote = (content) => {
   const action = {
     type: 'NEW_ANECDOTE',
-    data: asObject(content)
+    anecdote: asObject(content)
   }
   return action
 }
@@ -51,9 +51,9 @@ const reducer = (state = initialState, action) => {
   console.log('action', action)
   switch (action.type) {
     case 'VOTE':
-      return incrementVote(state,action.data.id)
+      return incrementVote(state,action.anecdote.id)
     case 'NEW_ANECDOTE':
-      return [...state,action.data]
+      return [...state,action.anecdote]
   }
   return state
 }

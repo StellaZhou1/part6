@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux'
 const AnecdoteList = () =>{
-    const anecdotes = useSelector(state => state)
+    const anecdotes = useSelector(state => state.anecdotes)
     const dispatch = useDispatch()
     const vote = (id) => {
-        dispatch({type: 'VOTE',data:{id:id}})
+        dispatch({type: 'VOTE',anecdote:{id:id}})
         console.log('vote', id)
     }
     return (
